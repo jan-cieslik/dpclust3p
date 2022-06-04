@@ -15,6 +15,7 @@ LINKAGEPULL = "Linkage_pull.pl"
 parseFai = function(fai_file) {
   fai = read.table(fai_file, header=F, stringsAsFactors=F)
   colnames(fai) = c("chromosome", "length", "offset", "fasta_line_length", "line_blen")
+  fai$chromosome = gsub("chr","",fai$chromosome)
   return(fai)
 }
 
